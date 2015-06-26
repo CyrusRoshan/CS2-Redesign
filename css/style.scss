@@ -1,8 +1,82 @@
-html{
+//Fonts:
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+@import url(http://fonts.googleapis.com/css?family=Play);
+
+html, body{
 	height: 100%;
 	width: 100%;
+	padding: 0;
+	margin: 0;
+	font-family: "Open Sans";
+	background-color: #424267;
 }
 
 a{
 	text-decoration: none;
+}
+
+$fontSizeC1: 80;
+
+
+.content{
+	.header{
+		$borderVal: 5px solid white;
+		border-bottom: $borderVal;
+		border-right: $borderVal;
+		width: 90%;
+		display: flex;
+		align-items: center;
+		align-content: center;
+		justify-content: space-between;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		background-color: rgb(99, 129, 255);
+		color: rgb(218, 225, 255);
+		border-radius: 0% 0% 10% 0% / 0% 50% 90% 0%;
+		.left{
+			margin-left: 3%;
+			display: flex;
+			font-weight: 100;
+			font-size: $fontSizeC1 + px;
+		}
+		.right{
+			margin-right: 8%;
+			margin-left: 2%;
+			display: flex;
+			vertical-align: center;
+			flex-direction: column;
+			font-weight: 300;
+			font-size: ($fontSizeC1/2.5) + px;
+			.top{
+
+			}
+			.bottom{
+
+			}
+		}
+	}
+
+	.section{
+
+	}
+
+	.section1{
+
+	}
+
+	.section2{
+
+	}
+
+	.section3{
+
+	}
+
+	.section4{
+
+	}
+
+	.footer{
+
+	}
 }
