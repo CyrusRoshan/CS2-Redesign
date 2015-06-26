@@ -2,13 +2,15 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
 @import url(http://fonts.googleapis.com/css?family=Play);
 
+$bodyBgColor: #232d79;
+
 html, body{
 	height: 100%;
 	width: 100%;
 	padding: 0;
 	margin: 0;
 	font-family: "Open Sans";
-	background-color: #424267;
+	background-color: $bodyBgColor;
 }
 
 a{
@@ -19,7 +21,21 @@ $fontSizeC1: 80;
 
 
 .content{
+	background-color: $bodyBgColor;
+	@keyframes slideIn {
+	  0%{
+		transform: translate(-100%, 0);
+	  }
+
+	  100% {
+		transform: translate(0%, 0);
+	  }
+	}
 	.header{
+		//comment this out to remove header slide in animation
+		animation:
+			slideIn 1s ease normal;
+		//
 		$borderVal: 5px solid white;
 		border-bottom: $borderVal;
 		border-right: $borderVal;
@@ -30,8 +46,9 @@ $fontSizeC1: 80;
 		justify-content: space-between;
 		padding-top: 10px;
 		padding-bottom: 10px;
-		background-color: rgb(99, 129, 255);
-		color: rgb(218, 225, 255);
+		background-color: rgb(63, 98, 247);
+		background-image: linear-gradient(rgb(41, 78, 239) 60%, rgb(0, 0, 255) 100%);
+		color: rgb(204, 210, 235);
 		border-radius: 0% 0% 10% 0% / 0% 50% 90% 0%;
 		.left{
 			margin-left: 3%;
@@ -57,7 +74,13 @@ $fontSizeC1: 80;
 	}
 
 	.section{
+		background-color: rgba(0,0,0,0);
+		.gallery{
 
+		}
+		.links{
+
+		}
 	}
 
 	.section1{
