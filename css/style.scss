@@ -81,71 +81,72 @@ $fontSizeC1: 80;
 		background-color: rgba(0,0,0,0);
 		justify-content: center;
 		.gallery{
+			$imageAWidth: 900;
+			//I don't like px values, but this was the easiest solution to making the gallery fade from one image to another
+
 			margin-top: 5%;
 			align-self: center;
 			display: flex;
+			position: relative;
 
-			$waitTime: 4.5;
+			margin-right: $imageAWidth - 10 + px;
+			$waitTime: 7;
 			$fadeTime: .5;
 			.imageA{
 				border-radius: 40px;
+				border: 5px solid white;
 				flex-shrink: 0;
 				flex-grow: 0;
-				height: 0;
-				overflow: hidden;
+				position: absolute;
 			}
+
+			//the following math for the animation times, delay times, and keyframe times could be wrong, but the image display time shouldn't matter *too* much, so it's pretty minor.
+
 			.imageA1{
 				animation:
 					fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
-				animation-delay: 1 * ($waitTime + $fadeTime) + s;
+				animation-delay: 0 * $waitTime + 0 * $fadeTime + s;
 			}
 			.imageA2{
 				animation:
 					fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
-				animation-delay: 2 * ($waitTime + $fadeTime) + s;
+				animation-delay: 1 * $waitTime + 1 * $fadeTime + s;
 			}
 			.imageA3{
 				animation:
 					fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
-				animation-delay: 3 * ($waitTime + $fadeTime) + s;
+				animation-delay: 2 * $waitTime + 2 * $fadeTime + s;
 			}
 			.imageA4{
 				animation:
 					fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
-				animation-delay: 4 * ($waitTime + $fadeTime) + s;
+				animation-delay: 3* $waitTime + 3 * $fadeTime + s;
 			}
 			.imageA5{
 				animation:
 					fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
-				animation-delay: 5 * ($waitTime + $fadeTime) + s;
+				animation-delay: 4 * $waitTime + 4 * $fadeTime + s;
 			}
-
 
 
 			@keyframes fadeLoop{
 				0%{
-					height: auto;
-					transform: translate(-10%, 0);
 					opacity: 1;
 				}
-				//(($waitTime/(($waitTime + $fadeTime)*10))*100) + %
-				18%{
-					transform: translate(10%, 0);
-					height: auto;
+				#{(2*($waitTime/(($waitTime + $fadeTime)*10))*100%)} {
 					opacity: 1;
 				}
-				//((($waitTime + $fadeTime)/(($waitTime + $fadeTime)*10))*100) + %
-				20%{
+				#{((2*($waitTime + $fadeTime)/(($waitTime + $fadeTime)*10))*100%)} {
 					opacity: 0;
-					height: 0;
-					overflow: hidden;
+				}
+				#{100% - (2*($waitTime/(($waitTime + $fadeTime)*10))*100%)} {
+					opacity: 0;
 				}
 				100%{
-					opacity: 0;
-					height: 0;
-					overflow: hidden;
+					opacity: 1;
 				}
 			}
+
 
 		}
 		.links{
