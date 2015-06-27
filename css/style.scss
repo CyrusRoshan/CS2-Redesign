@@ -22,19 +22,19 @@ $fontSizeC1: 80;
 
 .content{
 	background-color: $bodyBgColor;
-	@keyframes slideIn {
-	  0%{
-		transform: translate(-100%, 0);
-	  }
+	@keyframes slideIn{
+		0%{
+			transform: translate(-400%, 0);
+		}
 
-	  100% {
-		transform: translate(0%, 0);
-	  }
+		100%{
+			transform: translate(0%, 0);
+		}
 	}
 	.header{
 		//comment this out to remove header slide in animation
 		animation:
-			slideIn 1s ease normal;
+			slideIn 1.5s ease normal;
 		//
 		$borderVal: 5px solid white;
 		border-bottom: $borderVal;
@@ -74,8 +74,78 @@ $fontSizeC1: 80;
 	}
 
 	.section{
+		display: flex;
+		width: 100%;
+		align-content: center;
+		align-items: center;
 		background-color: rgba(0,0,0,0);
+		justify-content: center;
 		.gallery{
+			margin-top: 5%;
+			align-self: center;
+			display: flex;
+
+			$waitTime: 4.5;
+			$fadeTime: .5;
+			.imageA{
+				border-radius: 40px;
+				flex-shrink: 0;
+				flex-grow: 0;
+				height: 0;
+				overflow: hidden;
+			}
+			.imageA1{
+				animation:
+					fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
+				animation-delay: 1 * ($waitTime + $fadeTime) + s;
+			}
+			.imageA2{
+				animation:
+					fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
+				animation-delay: 2 * ($waitTime + $fadeTime) + s;
+			}
+			.imageA3{
+				animation:
+					fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
+				animation-delay: 3 * ($waitTime + $fadeTime) + s;
+			}
+			.imageA4{
+				animation:
+					fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
+				animation-delay: 4 * ($waitTime + $fadeTime) + s;
+			}
+			.imageA5{
+				animation:
+					fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
+				animation-delay: 5 * ($waitTime + $fadeTime) + s;
+			}
+
+
+
+			@keyframes fadeLoop{
+				0%{
+					height: auto;
+					transform: translate(-10%, 0);
+					opacity: 1;
+				}
+				//(($waitTime/(($waitTime + $fadeTime)*10))*100) + %
+				18%{
+					transform: translate(10%, 0);
+					height: auto;
+					opacity: 1;
+				}
+				//((($waitTime + $fadeTime)/(($waitTime + $fadeTime)*10))*100) + %
+				20%{
+					opacity: 0;
+					height: 0;
+					overflow: hidden;
+				}
+				100%{
+					opacity: 0;
+					height: 0;
+					overflow: hidden;
+				}
+			}
 
 		}
 		.links{
