@@ -81,8 +81,54 @@ $fontSizeC1: 80;
 		background-color: rgba(0,0,0,0);
 		justify-content: center;
 		.gallery{
+
+			$imageAHeight: 350; //(in pixels)
 			$imageAWidth: 900;
 			//I don't like px values, but this was the easiest solution to making the gallery fade from one image to another
+
+			$waitTime: 7;
+			$fadeTime: .5;
+
+			$imageSAWidth: 10; //(all in px)
+			$borderWidth: 3;
+			$imageSASpacing: 5;
+			.imageSelector{
+				position: relative;
+				display: flex;
+				align-content: flex-start;
+				align-items: baseline;
+				z-index: 100;
+				margin-top: $imageAHeight - ($imageSAWidth * 1.5 + $borderWidth) + px;
+				justify-content: flex-start;
+				.imageSA{
+					position: absolute;
+					display: flex;
+					width: $imageSAWidth + px;
+					height: $imageSAWidth + px;
+					background-color: rgb(0, 0, 0);
+					border: $borderWidth + px solid rgba(255, 255, 255, 1);
+					border-radius: $imageSAWidth + px;
+
+				}
+				.imageSA1{
+					margin-left: $imageSAWidth + 2 * $borderWidth + px;
+				}
+				.imageSA2{
+					margin-left: 2 * $imageSAWidth + 4 * $borderWidth + $imageSASpacing + px;
+				}
+				.imageSA3{
+					margin-left: 3 * $imageSAWidth + 6 * $borderWidth + 2 * $imageSASpacing + px;
+				}
+				.imageSA4{
+					margin-left: 4 * $imageSAWidth + 8 * $borderWidth + 3 * $imageSASpacing + px;
+				}
+				.imageSA5{
+					margin-left: 5 * $imageSAWidth + 10 * $borderWidth + 4 * $imageSASpacing + px;
+				}
+			}
+
+
+
 
 			margin-top: 5%;
 			align-self: center;
@@ -90,11 +136,13 @@ $fontSizeC1: 80;
 			position: relative;
 
 			margin-right: $imageAWidth - 10 + px;
-			$waitTime: 7;
-			$fadeTime: .5;
 			.imageA{
+				width: $imageAWidth;
 				border-radius: 40px;
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
 				border: 5px solid white;
+				border-bottom: 0px;
 				flex-shrink: 0;
 				flex-grow: 0;
 				position: absolute;
@@ -147,7 +195,9 @@ $fontSizeC1: 80;
 				}
 			}
 
+			.imageTimer{
 
+			}
 		}
 		.links{
 
