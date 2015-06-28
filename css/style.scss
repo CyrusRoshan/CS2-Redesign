@@ -120,16 +120,13 @@ $fontSizeHeaderRight: 3.1vw;
 					background-color: rgb(0, 0, 0);
 					border: $borderSAWidth + px solid $imageSABorderColor;
 					border-radius: $imageSAWidth + px;
-
-
 					background-color: #aaa;
 				}
-
 				.radio .labelSA:before {
 					border-radius: 8px;
 				}
 				.imageSA[type=radio]:checked + .labelSA:before {
-					background-color: rgb(52, 52, 52);
+					//background-color: #000;
 				}
 				//end styling for buttons
 
@@ -181,10 +178,6 @@ $fontSizeHeaderRight: 3.1vw;
 					animation:
 						buttonSelectLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
 					animation-delay: 4 * $waitTime + 4 * $fadeTime + s;
-				}
-
-				.imageSA[type=radio]:checked + .labelSA:before{
-
 				}
 
 				@keyframes buttonSelectLoop{
