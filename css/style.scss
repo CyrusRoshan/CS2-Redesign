@@ -91,6 +91,8 @@ $fontSizeHeaderRight: 3.1vw;
 			$waitTime: 7;
 			$fadeTime: .5;
 
+			$topSpacing: 50;
+
 			$imageSAWidth: 10; //(all in px)
 			$borderSAWidth: 3;
 			$imageSASpacing: 5;
@@ -101,7 +103,7 @@ $fontSizeHeaderRight: 3.1vw;
 				align-content: flex-start;
 				align-items: baseline;
 				z-index: 100;
-				margin-top: $imageAHeight - ($imageSAWidth * 1.5 + $borderSAWidth) + px;
+				margin-top: $topSpacing + $imageAHeight - ($imageSAWidth * 1.5 +  2 * $borderSAWidth) + px;
 				justify-content: flex-start;
 
 				//the following is for styling the buttons
@@ -121,6 +123,7 @@ $fontSizeHeaderRight: 3.1vw;
 					border: $borderSAWidth + px solid $imageSABorderColor;
 					border-radius: $imageSAWidth + px;
 					background-color: #aaa;
+					z-index: 1000;
 				}
 				.radio .labelSA:before {
 					border-radius: 8px;
@@ -197,108 +200,233 @@ $fontSizeHeaderRight: 3.1vw;
 						background-color: #aaa;
 					}
 				}
-			}
 
+				//select slide 1, remove then reapply css animations (http://www.w3.org/TR/css3-animations/)
+				.imageSA1[type=radio]:checked * ~, .imageSA1[type=radio]:checked ~, .imageSA1[type=radio]:checked ~ *{
+					//remove
+					& .imageTimer{
+						height: 40px;
+					}
+					& .labelSA1:before{
+						height: 50px;
+					}
+					& .labelSA1:before{
+						animation:
+							doNothing 1s linear normal;
+					}
+					& .labelSA2:before{
+						animation:
+							doNothing 1s linear normal;
+					}
+					& .labelSA3:before{
+						animation:
+							doNothing 1s linear normal;
+					}
+					& .labelSA4:before{
+						animation:
+							doNothing 1s linear normal;
+					}
+					& .labelSA5:before{
+						animation:
+							doNothing 1s linear normal;
+					}
+					& .imageA1{
+						animation:
+							doNothing 1s linear normal;
+					}
+					& .imageA2{
+						animation:
+							doNothing 1s linear normal;
+					}
+					& .imageA3{
+						animation:
+							doNothing 1s linear normal;
+					}
+					& .imageA4{
+						animation:
+							doNothing 1s linear normal;
+					}
+					& .imageA5{
+						animation:
+							doNothing 1s linear normal;
+					}
+					& .imagetimer{
+						animation-name: test1;
+					}
 
-
-			margin-top: 5%;
-			align-self: center;
-			display: flex;
-			position: relative;
-
-			margin-right: $imageAWidth - 10 + px;
-			.imageA{
-				z-index: -100;
-				width: $imageAWidth + px;
-				height: $imageAHeight + px;
-				border-radius: 40px;
-				border-bottom-left-radius: 0;
-				border-bottom-right-radius: 0;
-				border: $imageABorderWidth + px solid $imageABorderColor;
-				border-bottom: 0px;
-				flex-shrink: 0;
-				flex-grow: 0;
-				position: absolute;
-			}
-
-			//the following math for the animation times, delay times, and keyframe times could be wrong, but the image display time shouldn't matter *too* much, so it's pretty minor.
-
-			.imageA1{
-				z-index: 10;
-				animation:
-					fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
-				animation-delay: 0 * $waitTime + 0 * $fadeTime + s;
-			}
-			.imageA2{
-				animation:
-					fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
-				animation-delay: 1 * $waitTime + 1 * $fadeTime + s;
-			}
-			.imageA3{
-				animation:
-					fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
-				animation-delay: 2 * $waitTime + 2 * $fadeTime + s;
-			}
-			.imageA4{
-				animation:
-					fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
-				animation-delay: 3* $waitTime + 3 * $fadeTime + s;
-			}
-			.imageA5{
-				animation:
-					fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
-				animation-delay: 4 * $waitTime + 4 * $fadeTime + s;
-			}
-
-
-			@keyframes fadeLoop{
-				0%{
-					opacity: .25;
-					z-index: 10;
+					@-webkit-keyframes test1 {
+  to {width: auto;}
+					}
+					//reapply
+/*
+					& .labelSA1:before{
+						animation:
+							buttonSelectLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
+					}
+					& .labelSA2:before{
+						animation:
+							buttonSelectLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
+						animation-delay: 1 * $waitTime + 1 * $fadeTime + s;
+					}
+					& .labelSA3:before{
+						animation:
+							buttonSelectLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
+						animation-delay: 2 * $waitTime + 2 * $fadeTime + s;
+					}
+					& .labelSA4:before{
+						animation:
+							buttonSelectLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
+						animation-delay: 3 * $waitTime + 3 * $fadeTime + s;
+					}
+					& .labelSA5:before{
+						animation:
+							buttonSelectLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
+						animation-delay: 4 * $waitTime + 4 * $fadeTime + s;
+					}
+					& .imageA1{
+						z-index: 10;
+						animation:
+							fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
+						animation-delay: 0 * $waitTime + 0 * $fadeTime + s;
+					}
+					& .imageA2{
+						animation:
+							fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
+						animation-delay: 1 * $waitTime + 1 * $fadeTime + s;
+					}
+					& .imageA3{
+						animation:
+							fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
+						animation-delay: 2 * $waitTime + 2 * $fadeTime + s;
+					}
+					& .imageA4{
+						animation:
+							fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
+						animation-delay: 3* $waitTime + 3 * $fadeTime + s;
+					}
+					& .imageA5{
+						animation:
+							fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
+						animation-delay: 4 * $waitTime + 4 * $fadeTime + s;
+					}
+					& .imagetimer{
+						animation:
+							imageSlider $waitTime * 1 + $fadeTime * 1 + s ease-out infinite normal;
+					}*/
 				}
-				#{(($fadeTime/(($waitTime + $fadeTime)*10))*100%)} {
-					opacity: 1;
-					z-index: 10;
-				}
-				#{(2*($waitTime/(($waitTime + $fadeTime)*10))*100%)} {
-					opacity: 1;
-					z-index: 10;
-				}
-				#{((2*($waitTime + $fadeTime)/(($waitTime + $fadeTime)*10))*100%)} {
-					opacity: .5;
-					z-index: 5;
-				}
-				#{100% - (2*($waitTime/(($waitTime + $fadeTime)*10))*100%)} {
-					opacity: .5;
-					z-index: 5;
-				}
-				100%{
-					opacity: .25;
-					z-index: 5;
-				}
-			}
 
-			.imageTimer{
-				position: absolute;
-				margin-top: $imageAHeight + $imageABorderWidth + px;
-				width: $imageAWidth + px;
-				background-size: 200% 100%;
-				background-image: linear-gradient(to right, #383e6a 50%, #8795ff 50%);
-				height: 10px;
-				border: $imageABorderWidth + px solid $imageABorderColor;
-				border-top: 2px solid $imageABorderColor;
-				border-bottom-left-radius: 40px;
-				border-bottom-right-radius: 40px;
-				animation:
-					imageSlider $waitTime * 1 + $fadeTime * 1 + s ease-out infinite normal;
-			}
 
-			@keyframes imageSlider{
-				0%{
-					background-position: 0 0;
-				}
-				100%{
-					background-position: -100% 0;
+
+				.galleryFrame{
+					margin-top: 0 * $topSpacing + -2 * ($imageAHeight - ($imageSAWidth * 1.5 + 2 * $borderSAWidth)) + px;
+					align-self: center;
+					display: flex;
+					position: relative;
+
+					margin-right: $imageAWidth - 10 + px;
+					.imageA{
+						z-index: -100;
+						width: $imageAWidth + px;
+						height: $imageAHeight + px;
+						border-radius: 40px;
+						border-bottom-left-radius: 0;
+						border-bottom-right-radius: 0;
+						border: $imageABorderWidth + px solid $imageABorderColor;
+						border-bottom: 0px;
+						flex-shrink: 0;
+						flex-grow: 0;
+						position: absolute;
+					}
+
+					//the following math for the animation times, delay times, and keyframe times could be wrong, but the image display time shouldn't matter *too* much, so it's pretty minor.
+
+					.imageA1{
+						z-index: 10;
+						animation:
+							fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
+						animation-delay: 0 * $waitTime + 0 * $fadeTime + s;
+					}
+					.imageA2{
+						animation:
+							fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
+						animation-delay: 1 * $waitTime + 1 * $fadeTime + s;
+					}
+					.imageA3{
+						animation:
+							fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
+						animation-delay: 2 * $waitTime + 2 * $fadeTime + s;
+					}
+					.imageA4{
+						animation:
+							fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
+						animation-delay: 3* $waitTime + 3 * $fadeTime + s;
+					}
+					.imageA5{
+						animation:
+							fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
+						animation-delay: 4 * $waitTime + 4 * $fadeTime + s;
+					}
+
+
+					@keyframes fadeLoop{
+						0%{
+							opacity: .25;
+							z-index: 10;
+						}
+						#{(($fadeTime/(($waitTime + $fadeTime)*10))*100%)} {
+							opacity: 1;
+							z-index: 10;
+						}
+						#{(2*($waitTime/(($waitTime + $fadeTime)*10))*100%)} {
+							opacity: 1;
+							z-index: 10;
+						}
+						#{((2*($waitTime + $fadeTime)/(($waitTime + $fadeTime)*10))*100%)} {
+							opacity: .5;
+							z-index: 5;
+						}
+						#{100% - (2*($waitTime/(($waitTime + $fadeTime)*10))*100%)} {
+							opacity: .5;
+							z-index: 5;
+						}
+						100%{
+							opacity: .25;
+							z-index: 5;
+						}
+					}
+
+					.imageTimer{
+						position: absolute;
+						margin-top: $imageAHeight + $imageABorderWidth + px;
+						width: $imageAWidth + px;
+						background-size: 200% 100%;
+						background-image: linear-gradient(to right, #383e6a 50%, #8795ff 50%);
+						height: 10px;
+						border: $imageABorderWidth + px solid $imageABorderColor;
+						border-top: 2px solid $imageABorderColor;
+						border-bottom-left-radius: 40px;
+						border-bottom-right-radius: 40px;
+						animation:
+							imageSlider $waitTime * 1 + $fadeTime * 1 + s ease-out infinite normal;
+					}
+
+					@keyframes imageSlider{
+						0%{
+							background-position: 0 0;
+						}
+						100%{
+							background-position: -100% 0;
+						}
+					}
+
+					@keyframes doNothing{
+						0%{
+
+						}
+						100%{
+
+						}
+					}
 				}
 			}
 		}
