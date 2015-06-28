@@ -83,8 +83,8 @@ $fontSizeHeaderRight: 3.1vw;
 		justify-content: center;
 		.gallery{
 
-			$imageAHeight: 350; //(in pixels)
-			$imageAWidth: 900;
+			$imageAHeight: 400; //(in pixels)
+			$imageAWidth: 1000;
 			$imageABorderWidth: 3;
 			$imageABorderColor: white;
 
@@ -217,6 +217,7 @@ $fontSizeHeaderRight: 3.1vw;
 			.imageA{
 				z-index: -100;
 				width: $imageAWidth + px;
+				height: $imageAHeight + px;
 				border-radius: 40px;
 				border-bottom-left-radius: 0;
 				border-bottom-right-radius: 0;
