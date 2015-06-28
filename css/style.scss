@@ -84,21 +84,23 @@ $fontSizeC1: 80;
 
 			$imageAHeight: 350; //(in pixels)
 			$imageAWidth: 900;
-			//I don't like px values, but this was the easiest solution to making the gallery fade from one image to another
+			$imageABorderWidth: 3;
+			$imageABorderColor: white;
 
 			$waitTime: 7;
 			$fadeTime: .5;
 
 			$imageSAWidth: 10; //(all in px)
-			$borderWidth: 3;
+			$borderSAWidth: 3;
 			$imageSASpacing: 5;
+			$imageSABorderColor: white;
 			.imageSelector{
 				position: relative;
 				display: flex;
 				align-content: flex-start;
 				align-items: baseline;
 				z-index: 100;
-				margin-top: $imageAHeight - ($imageSAWidth * 1.5 + $borderWidth) + px;
+				margin-top: $imageAHeight - ($imageSAWidth * 1.5 + $borderSAWidth) + px;
 				justify-content: flex-start;
 
 				//the following is for styling the buttons
@@ -112,10 +114,10 @@ $fontSizeC1: 80;
 				.labelSA:before {
 					content: "";
 					display: inline-block;
-width: $imageSAWidth + px;
+					width: $imageSAWidth + px;
 					height: $imageSAWidth + px;
 					background-color: rgb(0, 0, 0);
-					border: $borderWidth + px solid rgba(255, 255, 255, 1);
+					border: $borderSAWidth + px solid $imageSABorderColor;
 					border-radius: $imageSAWidth + px;
 
 
@@ -136,23 +138,27 @@ width: $imageSAWidth + px;
 					/*width: $imageSAWidth + px;
 					height: $imageSAWidth + px;
 					background-color: rgb(0, 0, 0);
-					border: $borderWidth + px solid rgba(255, 255, 255, 1);
+					border: $borderSAWidth + px solid rgba(255, 255, 255, 1);
 					border-radius: $imageSAWidth + px;*/
 				}
 				.labelSA1, .imageSA1{
-					margin-left: $imageSAWidth + 2 * $borderWidth + px;
+					margin-left: $imageABorderWidth + 2 * $borderSAWidth + px;
 				}
 				.labelSA2, .imageSA2{
-					margin-left: 2 * $imageSAWidth + 4 * $borderWidth + $imageSASpacing + px;
+					margin-left: $imageABorderWidth + $imageSAWidth + 4 * $borderSAWidth + $imageSASpacing + px;
 				}
 				.labelSA3, .imageSA3{
-					margin-left: 3 * $imageSAWidth + 6 * $borderWidth + 2 * $imageSASpacing + px;
+					margin-left: $imageABorderWidth + 2 * $imageSAWidth + 6 * $borderSAWidth + 2 * $imageSASpacing + px;
 				}
 				.labelSA4, .imageSA4{
-					margin-left: 4 * $imageSAWidth + 8 * $borderWidth + 3 * $imageSASpacing + px;
+					margin-left: $imageABorderWidth + 3 * $imageSAWidth + 8 * $borderSAWidth + 3 * $imageSASpacing + px;
 				}
 				.labelSA5, .imageSA5{
-					margin-left: 5 * $imageSAWidth + 10 * $borderWidth + 4 * $imageSASpacing + px;
+					margin-left: $imageABorderWidth + 4 * $imageSAWidth + 10 * $borderSAWidth + 4 * $imageSASpacing + px;
+				}
+
+				.imageSA[type=radio]:checked + .labelSA:before{
+
 				}
 			}
 
@@ -166,11 +172,12 @@ width: $imageSAWidth + px;
 
 			margin-right: $imageAWidth - 10 + px;
 			.imageA{
-				width: $imageAWidth;
+				z-index: -100;
+				width: $imageAWidth + px;
 				border-radius: 40px;
 				border-bottom-left-radius: 0;
 				border-bottom-right-radius: 0;
-				border: 5px solid white;
+				border: $imageABorderWidth + px solid $imageABorderColor;
 				border-bottom: 0px;
 				flex-shrink: 0;
 				flex-grow: 0;
@@ -180,6 +187,7 @@ width: $imageSAWidth + px;
 			//the following math for the animation times, delay times, and keyframe times could be wrong, but the image display time shouldn't matter *too* much, so it's pretty minor.
 
 			.imageA1{
+				z-index: 10;
 				animation:
 					fadeLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
 				animation-delay: 0 * $waitTime + 0 * $fadeTime + s;
@@ -208,24 +216,53 @@ width: $imageSAWidth + px;
 
 			@keyframes fadeLoop{
 				0%{
+					opacity: .25;
+					z-index: 10;
+				}
+				#{(($fadeTime/(($waitTime + $fadeTime)*10))*100%)} {
 					opacity: 1;
+					z-index: 10;
 				}
 				#{(2*($waitTime/(($waitTime + $fadeTime)*10))*100%)} {
 					opacity: 1;
+					z-index: 10;
 				}
 				#{((2*($waitTime + $fadeTime)/(($waitTime + $fadeTime)*10))*100%)} {
-					opacity: 0;
+					opacity: .5;
+					z-index: 5;
 				}
 				#{100% - (2*($waitTime/(($waitTime + $fadeTime)*10))*100%)} {
-					opacity: 0;
+					opacity: .5;
+					z-index: 5;
 				}
 				100%{
-					opacity: 1;
+					opacity: .25;
+					z-index: 5;
 				}
 			}
 
 			.imageTimer{
+				position: absolute;
+				margin-top: $imageAHeight + $imageABorderWidth + px;
+				width: $imageAWidth + px;
+				background-size: 200% 100%;
+				background-image: linear-gradient(to right, #383e6a 50%, #4a5ce6 50%);
+				height: 10px;
+				border: $imageABorderWidth + px solid $imageABorderColor;
+				border-top: 2px solid $imageABorderColor;
+				border-bottom-left-radius: 40px;
+				border-bottom-right-radius: 40px;
+				animation:
+					imageSlider $waitTime * 1 + $fadeTime * 1 + s ease-out infinite normal;
+			}
 
+			@keyframes imageSlider{
+				0%{
+					background-position: 0 0;
+				}
+				100%{
+					background-position: -100% 0;
+				}
 			}
 		}
 		.links{
