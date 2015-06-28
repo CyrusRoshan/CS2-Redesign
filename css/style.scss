@@ -157,8 +157,51 @@ $fontSizeC1: 80;
 					margin-left: $imageABorderWidth + 4 * $imageSAWidth + 10 * $borderSAWidth + 4 * $imageSASpacing + px;
 				}
 
+				.labelSA1:before{
+					animation:
+						buttonSelectLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
+				}
+				.labelSA2:before{
+					animation:
+						buttonSelectLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
+					animation-delay: 1 * $waitTime + 1 * $fadeTime + s;
+				}
+				.labelSA3:before{
+					animation:
+						buttonSelectLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
+					animation-delay: 2 * $waitTime + 2 * $fadeTime + s;
+				}
+				.labelSA4:before{
+					animation:
+						buttonSelectLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
+					animation-delay: 3 * $waitTime + 3 * $fadeTime + s;
+				}
+				.labelSA5:before{
+					animation:
+						buttonSelectLoop $waitTime * 5 + $fadeTime * 5 + s linear infinite normal;
+					animation-delay: 4 * $waitTime + 4 * $fadeTime + s;
+				}
+
 				.imageSA[type=radio]:checked + .labelSA:before{
 
+				}
+
+				@keyframes buttonSelectLoop{
+					0%{
+						background-color: #aaa;
+					}
+					#{(($fadeTime/(($waitTime + $fadeTime)*10))*100%)} {
+						background-color: #000;
+					}
+					#{(2*($waitTime/(($waitTime + $fadeTime)*10))*100%)} {
+						background-color: #000;
+					}
+					#{((2*($waitTime + $fadeTime)/(($waitTime + $fadeTime)*10))*100%)} {
+						background-color: #aaa;
+					}
+					100%{
+						background-color: #aaa;
+					}
 				}
 			}
 
@@ -246,7 +289,7 @@ $fontSizeC1: 80;
 				margin-top: $imageAHeight + $imageABorderWidth + px;
 				width: $imageAWidth + px;
 				background-size: 200% 100%;
-				background-image: linear-gradient(to right, #383e6a 50%, #4a5ce6 50%);
+				background-image: linear-gradient(to right, #383e6a 50%, #8795ff 50%);
 				height: 10px;
 				border: $imageABorderWidth + px solid $imageABorderColor;
 				border-top: 2px solid $imageABorderColor;
