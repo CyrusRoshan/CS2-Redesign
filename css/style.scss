@@ -17,7 +17,8 @@ a{
 	text-decoration: none;
 }
 
-$fontSizeC1: 80;
+$fontSizeHeaderLeft: 5.5vw;
+$fontSizeHeaderRight: 3.1vw;
 
 
 .content{
@@ -54,7 +55,7 @@ $fontSizeC1: 80;
 			margin-left: 3%;
 			display: flex;
 			font-weight: 100;
-			font-size: $fontSizeC1 + px;
+			font-size: $fontSizeHeaderLeft;
 		}
 		.right{
 			margin-right: 8%;
@@ -63,7 +64,7 @@ $fontSizeC1: 80;
 			vertical-align: center;
 			flex-direction: column;
 			font-weight: 300;
-			font-size: ($fontSizeC1/2.5) + px;
+			font-size: $fontSizeHeaderRight;
 			.top{
 
 			}
@@ -204,7 +205,6 @@ $fontSizeC1: 80;
 					}
 				}
 			}
-
 
 
 
