@@ -3,10 +3,13 @@
 	<head>
 		<title>Information</title>
 		<link href="css/style.css" rel='stylesheet' type='text/css' />
+		<script src="js/jquery-2.1.4.min.js"></script>
+		<script src="js/jquery.color.js"></script>
+		<script src="js/scroll.js"></script>
 	</head>
 	<body>
 		<div class="content">
-			<div id="header" class="header">
+			<div class="header">
 				<div class="left">
 					Information Template
 				</div>
@@ -18,36 +21,29 @@
 
 			<div id="section1" class="section section1">
 				<div class="gallery">
-					<div class="imageSelector">
-						<input id="imageSA1" name="imageSA" value="imageSA1" type="radio" class="imageSA imageSA1"></input>
-						<input id="imageSA2" name="imageSA" value="imageSA2" type="radio" class="imageSA imageSA2"></input>
-						<input id="imageSA3" name="imageSA" value="imageSA3" type="radio" class="imageSA imageSA3"></input>
-						<input id="imageSA4" name="imageSA" value="imageSA4" type="radio" class="imageSA imageSA4"></input>
-						<input id="imageSA5" name="imageSA" value="imageSA5" type="radio" class="imageSA imageSA5"></input>
-						<!--Keep inputs before labels because only labels are displayed to users, and css doesn't support elements modifying previous elements-->
-						<label class="labelSA labelSA1" for="imageSA1"></label>
-						<label class="labelSA labelSA2" for="imageSA2"></label>
-						<label class="labelSA labelSA3" for="imageSA3"></label>
-						<label class="labelSA labelSA4" for="imageSA4"></label>
-						<label class="labelSA labelSA5" for="imageSA5"></label>
-
-						<div class="galleryFrame">
-							<img class="imageA imageA1" src="http://placehold.it/1000x400/ff0000">
-							<img class="imageA imageA2" src="http://placehold.it/1000x400/00ff00">
-							<img class="imageA imageA3" src="http://placehold.it/1000x400/0000ff">
-							<img class="imageA imageA4" src="http://placehold.it/1000x400/eeeeee">
-							<img class="imageA imageA5" src="http://placehold.it/1000x400/000000">
-							<div class="imageTimer"></div>
-						</div>
+					<div class="imageAHolder">
+						<img class="imageA imageA1" src="http://placehold.it/1000x400/ff0000">
+						<img class="imageA imageA2" src="http://placehold.it/1000x400/00ff00">
+						<img class="imageA imageA3" src="http://placehold.it/1000x400/0000ff">
+						<img class="imageA imageA4" src="http://placehold.it/1000x400/eeeeee">
+						<img class="imageA imageA5" src="http://placehold.it/1000x400/000000">
 					</div>
-
+					<div class="imageASelectors">
+						<div id="imageSA1" class="imageSA imageSA1"></div>
+						<div id="imageSA2" class="imageSA imageSA2"></div>
+						<div id="imageSA3" class="imageSA imageSA3"></div>
+						<div id="imageSA4" class="imageSA imageSA4"></div>
+						<div id="imageSA5" class="imageSA imageSA5"></div>
+					</div>
+					<div class="imageASlider"></div>
+					<div class="links">
+						<a class="link link1" href="#section2"></a>
+						<a class="link link2" href="#section3"></a>
+						<a class="link link3" href="#section4"></a>
+						<a class="link link4" href="#footer"></a>
+					</div>
 				</div>
-				<div class="links">
-					<a class="link link1" href="#section2"></a>
-					<a class="link link2" href="#section3"></a>
-					<a class="link link3" href="#section4"></a>
-					<a class="link link4" href="#footer"></a>
-				</div>
+				<div class="
 			</div>
 			<div id="section2" class="section section2">
 
@@ -55,7 +51,7 @@
 			<div id="section3" class="section section3">
 
 			</div>
-			<div id="section3" class="section section4">
+			<div id="section4" class="section section4">
 
 			</div>
 

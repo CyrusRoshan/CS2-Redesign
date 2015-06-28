@@ -4,9 +4,7 @@
 
 Information is a mobile-friendly website template designed to have an intuitive feel and simple and smooth UX/UI. It is designed for organizations showcasing information about themselves or their activities.
 
-It uses * **no javascript,** * improving page load times by reducing file size and CPU load, as well as giving me a challenge.
-
-Inspired by <a href="http://codepen.io/vaielab/pen/yoKEF">Duck Hunt CSS,</a> a recreation of the classic game using only HTML and CSS.
+Originally designed to use no javascript, this project was reverted to a previous commit and continued with the use of javascript after I discovered that CSS animations cannot be reset with pure css.
 
 ---
 
