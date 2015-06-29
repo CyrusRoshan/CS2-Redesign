@@ -25,13 +25,13 @@ $fontSize3: 3;
 .content{
 	background-color: $bodyBgColor;
 	@keyframes slideIn {
-	  0%{
-		transform: translate(-100%, 0);
-	  }
+		0%{
+			transform: translate(-100%, 0);
+		}
 
-	  100% {
-		transform: translate(0%, 0);
-	  }
+		100% {
+			transform: translate(0%, 0);
+		}
 	}
 	.header{
 		//comment this out to remove header slide in animation
@@ -75,11 +75,59 @@ $fontSize3: 3;
 		}
 	}
 
+	$imageABorderWidth: 3;
+	$imageSAWidth: 20;
+	$borderSAWidth: 3;
+	$imageSASpacing: 10;
+	$imageABorderColor: white;
 	.section{
 		background-color: rgba(0,0,0,0);
 		.gallery{
+			margin-left: 10%;
+			margin-top: 5%;
+			width: 80%;
+			position: relative;
+			.imageAHolder{
+				.slick-dots{
+					position: absolute;
+					bottom: 0px;
+					display: block;
+					width: 100%;
+					padding: 0;
+					list-style: none;
+					text-align: center;
 
+					li.slick-active button:before {
+						opacity: .75;
+						color: black;
+					}
+					li{
+						position: relative;
+						display: inline-block;
+						width: 20px;
+						height: 20px;
+						margin: 0 10px;
+						padding: 0;
+						cursor: pointer;
+						button{
+							font-size: 0;
+							line-height: 0;
+							display: block;
+							width: 20px;
+							height: 20px;
+							padding: 5px;
+							cursor: pointer;
+							color: white;
+							border: 3px solid #eaeaea;
+							outline: none;
+							background: #646464;
+							border-radius: 20px;
+						}
+					}
+				}
+			}
 		}
+
 		.links{
 
 		}
