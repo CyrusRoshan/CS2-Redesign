@@ -28,7 +28,7 @@ $fontSize3: 3;
 			rgba(0, 0, 50, 0.4),
 			rgba(0, 0, 50, 0.4)
 		),
-		url(../images/collegeBuildingStockPhoto.jpg) no-repeat center center fixed;
+		url(../images/ECSbuilding.jpg) no-repeat center center fixed;
 	background-size: cover;
 	//background-color: $bodyBgColor;
 	@keyframes slideIn {
@@ -88,7 +88,7 @@ $fontSize3: 3;
 	$imageSASpacing: 10;
 	$imageABorderColor: white;
 	.section{
-		background-color: rgba(0,0,0,0);
+		/*background-color: rgba(0,0,0,0);
 		.gallery{
 			margin-left: 15%;
 			margin-top: 5%;
@@ -145,10 +145,22 @@ $fontSize3: 3;
 		.links{
 
 		}
-	}
+	}*/
 
 	.section1{
+		.center{
+			.left{
 
+			}
+			.right{
+				.top{
+
+				}
+				.bottom{
+
+				}
+			}
+		}
 	}
 
 	.section2{
