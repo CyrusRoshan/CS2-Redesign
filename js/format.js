@@ -1,6 +1,11 @@
 window.onload = (function(){
+	formatSection1();
 	startImagesA();
 });
+
+function formatSection1(){
+	$(".section1 .center .right").css("height", $(".section .center .left").outerHeight() + "px");
+}
 
 function startImagesA(){
 	$('.imageAHolder').slick({
