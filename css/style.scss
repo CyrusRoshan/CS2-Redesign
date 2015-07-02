@@ -42,6 +42,7 @@ $fontSize3: 3;
 		}
 	}
 	.header{
+		box-shadow: 0px 0px 5vw #000000;
 		//comment this out to remove header slide in animation
 		animation:
 			slideIn 1s ease normal;
@@ -58,7 +59,8 @@ $fontSize3: 3;
 		padding-top: 10px;
 		padding-bottom: 10px;
 		background-color: rgb(63, 98, 247);
-		background-image: linear-gradient(rgb(232, 140, 49) 60%, rgb(206, 114, 23) 100%);
+		//background-image: linear-gradient(rgb(232, 140, 49) 60%, rgb(152, 81, 11) 100%);
+		background-image: linear-gradient(to bottom, #ed7e11, #a74e05);
 		color: rgb(255, 255, 255);
 		border-radius: 0% 0% 10% 0% / 0% 50% 90% 0%;
 		.left{
@@ -173,6 +175,7 @@ $fontSize3: 3;
 					border-radius: 10%;
 					border: 2px solid white;
 					width: 100%;
+					box-shadow: 0px 0px 5vw #000000;
 				}
 			}
 			.right{
@@ -187,6 +190,7 @@ $fontSize3: 3;
 					width: 100%;
 					font-size: 9vw;
 					float: left;
+					//text-shadow: 0px 0px 2vw #000000;
 				}
 				.bottom{
 					width: 100%;
@@ -304,7 +308,32 @@ $fontSize3: 3;
 	}
 
 	.section3{
-
+		width: 90%;
+		padding: 5%;
+		float: left;
+		background:
+			linear-gradient(
+				rgba(0, 85, 4, 0.79),
+				rgba(0, 85, 4, 0.79)
+			),
+			url(../images/galleryPhoto5.jpg) no-repeat center center fixed;
+		background-size: cover;
+		.title{
+			font-family: "Raleway","Play";
+			color: white;
+			font-weight: 200;
+			font-size: 4em;
+			text-indent: 0%;
+		}
+		.text{
+			font-family: "Open Sans";
+			color: white;
+			font-weight: 300;
+			font-size: 1.3em;
+			text-indent: 5%;
+			margin-top: 1%;
+			margin-bottom: 1%;
+		}
 	}
 
 	.section4{
@@ -315,7 +344,66 @@ $fontSize3: 3;
 
 	}
 
-	.footer{
+	.section6{
 
+	}
+
+	.footer{
+		a{
+			color: #f5ffa8;
+			transition-duration: .5s;
+			&:hover{
+				color: #00ff27;
+				transition-duration: .5s;
+				text-shadow: 0px 0px 2vw #000000;
+			}
+		}
+		width: 90%;
+		padding: 5%;
+		float: left;
+		background:
+			linear-gradient(
+				rgba(203, 109, 15, 0.76),
+				rgba(203, 109, 15, 0.76)
+			),
+			url(../images/ECSbuilding.jpg) no-repeat center center fixed;
+		background-size: cover;
+		.title{
+			font-family: "Raleway","Play";
+			color: white;
+			font-weight: 200;
+			font-size: 4em;
+			text-indent: 0%;
+		}
+		.infoHolder{
+			font-family: "Open Sans";
+			color: white;
+			margin-top: 1%;
+			margin-bottom: 1%;
+			display: flex;
+			justify-content: space-between;
+			.category{
+				.subtitle{
+					font-weight: 200;
+					font-size: 2em;
+				}
+				.content{
+
+				}
+			}
+		}
+		.attribution{
+			margin-top: 5%;
+			color: #ebebeb;
+			a{
+				color: #f1ff7f;
+				transition-duration: .5s;
+				&:hover{
+					color: #00ff27;
+					transition-duration: .5s;
+					text-shadow: 0px 0px 2vw #000000;
+				}
+			}
+		}
 	}
 }
