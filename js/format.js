@@ -1,6 +1,6 @@
 window.onload = (function(){
 	formatSection1();
-	startImagesA();
+	//startImagesA();
 });
 
 function formatSection1(){
